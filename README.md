@@ -93,6 +93,10 @@ cmake -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules \
       -DBUILD_PROTOBUF_LITE=OFF \
       -DBUILD_opencv_world=ON \
       -DCMAKE_INSTALL_PREFIX=/usr/local ..
+
 4.
   make -j$(nproc)
   sudo make install
+  cd python_loader
+  python setup.py install
+
