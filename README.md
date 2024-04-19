@@ -34,3 +34,60 @@ Please read the [contribution guidelines](https://github.com/opencv/opencv/wiki/
 * [Follow OpenCV on Mastodon](http://mastodon.social/@opencv) in the Fediverse
 * [Follow OpenCV on Twitter](https://twitter.com/opencvlive)
 * [OpenCV.ai](https://opencv.ai): Computer Vision and AI development services from the OpenCV team.
+
+
+Comiple instructions to support freetype:
+
+1.
+sudo apt-get update
+sudo apt-get install build-essential cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
+sudo apt-get install libfreetype6-dev libpng-dev libjpeg-dev libtiff-dev libv4l-dev libxvidcore-dev libx264-dev
+sudo apt-get install libgtk-3-dev
+sudo apt-get install ffmpeg libavcodec-dev libavformat-dev libswscale-dev libavresample-dev
+
+git clone https://github.com/opencv/opencv.git
+git clone https://github.com/opencv/opencv_contrib.git
+
+2.
+cd opencv
+mkdir build
+cd build
+
+3.
+cmake -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules \
+      -DBUILD_opencv_freetype=ON \
+      -DBUILD_opencv_gapi=ON \
+      -DBUILD_opencv_gapi_python_bindings_generator=ON \
+      -DBUILD_opencv_java=OFF \
+      -DBUILD_opencv_python3=ON \
+      -DBUILD_opencv_python_bindings_generator=ON \
+      -DBUILD_opencv_python_tests=OFF \
+      -DWITH_GDAL=ON \
+      -DWITH_GTK=ON \
+      -DWITH_CUDA=OFF \
+      -DWITH_TBB=ON \
+      -DWITH_OPENCL=ON \
+      -DWITH_OPENGL=ON \
+      -DWITH_V4L=ON \
+      -DWITH_QT=ON \
+      -DWITH_IPP=ON \
+      -DWITH_FFMPEG=ON \
+      -DWITH_GSTREAMER=ON \
+      -DWITH_1394=ON \
+      -DWITH_OPENEXR=ON \
+      -DWITH_TIFF=ON \
+      -DWITH_WEBP=ON \
+      -DWITH_JPEG=ON \
+      -DWITH_PNG=ON \
+      -DWITH_VTK=ON \
+      -DWITH_LAPACK=ON \
+      -DWITH_PROTOBUF=ON \
+      -DWITH_EIGEN=ON \
+      -DBUILD_PROTOBUF=ON \
+      -DBUILD_PROTOBUF_PYTHON=ON \
+      -DBUILD_PROTOBUF_LITE=OFF \
+      -DBUILD_opencv_world=ON \
+      -DCMAKE_INSTALL_PREFIX=/usr/local ..
+4.
+make -j$(nproc)
+sudo make install
