@@ -50,10 +50,12 @@ Please read the [contribution guidelines](https://github.com/opencv/opencv/wiki/
 
 2.
   cd opencv
+  
   mkdir build
+  
   cd build
 
-3.
+4.
 cmake -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules \
       -DBUILD_opencv_freetype=ON \
       -DBUILD_opencv_gapi=ON \
@@ -94,9 +96,12 @@ cmake -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules \
       -DBUILD_opencv_world=ON \
       -DCMAKE_INSTALL_PREFIX=/usr/local ..
 
-4.
+5.
   make -j$(nproc)
+  
   sudo make install
+
   cd python_loader
+
   python setup.py install
 
